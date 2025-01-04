@@ -2,3 +2,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  input, textarea {
+    @apply rounded-lg border p-3 outline-none w-full;
+  }
+
+  table {
+    @apply w-full;
+  }
+
+  fieldset {
+    @apply border p-3 mb-3;
+
+    legend {
+      @apply leading-3 text-slate-600;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply bg-blue-100 text-blue-600 text-sm font-semibold py-2 px-4 rounded;
+  }
+
+  .card {
+    @apply bg-white text-black shadow-md rounded-lg p-8 w-full;
+  }
+
+  .summary-card {
+    @apply bg-blue-100 text-blue-600 shadow-md rounded-lg p-8 w-full;
+  }
+}

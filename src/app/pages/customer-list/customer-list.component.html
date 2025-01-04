@@ -1,0 +1,31 @@
+<div class="grid grid-cols-2 gap-4 mb-6 md:grid-cols-4">
+    <app-summary-card [title]="'Total Customer'" [value]="counts().total" />
+    <app-summary-card [title]="'Newly Added Customer'" [value]="counts().newly"/>
+</div>
+
+<input type="search" placeholder="Search customer ..." [(ngModel)]="search">
+
+<div class="mt-4 card ">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Added At</th>
+                <th>Updated At</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of customers()" (click)="editCustomer(item.id)">
+                <td>{{ item.name }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.phone }}</td>
+                <td>{{ item.address }}</td>
+                <td>{{ item.created_at | date }}</td>
+                <td>{{ item.updated_at | date }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
