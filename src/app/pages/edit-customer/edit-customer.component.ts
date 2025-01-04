@@ -17,9 +17,10 @@ export class EditCustomerComponent implements OnInit {
   customerId = signal<string>('');
   customer = signal<Customer | undefined>(undefined);
   customerForm: CustomerForm = {
-    name: '',
+    first_name: '',
+    last_name: '',
     email: '',
-    phone: '',
+    contact_number: '',
     address: ''
   };
 

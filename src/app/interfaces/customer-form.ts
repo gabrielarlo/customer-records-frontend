@@ -1,6 +1,7 @@
 export interface CustomerForm {
-    name: string;
+    first_name: string;
+    last_name: string;
     email: string;
-    phone: string;
+    contact_number: string;
     address: string;
 }

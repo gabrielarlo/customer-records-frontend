@@ -8,8 +8,13 @@
         <h1 class="mb-4 text-2xl">Customer Details</h1>
         
         <fieldset>
-            <legend>Name *</legend>
-            <input type="text" placeholder="Name" name="name" [(ngModel)]="customerForm.name">
+            <legend>First Name *</legend>
+            <input type="text" placeholder="First Name" name="first_name" [(ngModel)]="customerForm.first_name">
+        </fieldset>
+
+        <fieldset>
+            <legend>Last Name *</legend>
+            <input type="text" placeholder="Last Name" name="last_name" [(ngModel)]="customerForm.last_name">
         </fieldset>
 
         <fieldset>
@@ -18,12 +23,12 @@
         </fieldset>
 
         <fieldset>
-            <legend>Phone</legend>
-            <input type="text" placeholder="Phone" name="phone" [(ngModel)]="customerForm.phone">
+            <legend>Contact Number *</legend>
+            <input type="text" placeholder="Contact Number" name="contact_number" [(ngModel)]="customerForm.contact_number">
         </fieldset>
 
         <fieldset>
-            <legend>Address</legend>
+            <legend>Address *</legend>
             <textarea name="address" [(ngModel)]="customerForm.address"></textarea>
         </fieldset>
 

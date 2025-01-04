@@ -12,9 +12,10 @@ import { CustomerService } from '../../services/customer.service';
 })
 export class AddCustomerComponent {
   customerForm: CustomerForm = {
-    name: '',
+    first_name: '',
+    last_name: '',
     email: '',
-    phone: '',
+    contact_number: '',
     address: ''
   }
 
@@ -29,9 +30,10 @@ export class AddCustomerComponent {
     if (customer !== undefined) {
       if (withNew) {
         this.customerForm = {
-          name: '',
+          first_name: '',
+          last_name: '',
           email: '',
-          phone: '',
+          contact_number: '',
           address: ''
         }
       } else {
