@@ -2,6 +2,10 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
 
+## environment variables
+
+Update the necessary environment variable in the files located in the `src/environments` directory.
+
 ## Development server
 
 To start a local development server, run:
