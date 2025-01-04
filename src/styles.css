@@ -10,6 +10,14 @@
 
   table {
     @apply w-full;
+
+    th {
+      @apply text-start;
+    }
+
+    th, td {
+      @apply p-3 border;
+    }
   }
 
   fieldset {
@@ -18,6 +26,10 @@
     legend {
       @apply leading-3 text-slate-600;
     }
+  }
+
+  a {
+    @apply text-blue-600 underline;
   }
 }
 

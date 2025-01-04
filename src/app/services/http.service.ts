@@ -3,11 +3,14 @@ import { environment } from '../../environments/environment';
 import axios, { AxiosError } from 'axios';
 import { CustomerForm } from '../interfaces/customer-form';
 import { Methods } from '../enums/methods';
+import { ToasterService, ToasterType } from './toaster.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
+
+  constructor(protected toasterService: ToasterService) { }
 
   async get(uri: string) {
     const url = `${environment.apiUrl}${uri}`;
@@ -25,6 +28,7 @@ export class HttpService {
     this.logRequest(url, Methods.POST, data);
     try {
       const response = await axios.post(url, data);
+      this.toasterService.showToaster('Created successfully', ToasterType.SUCCESS);
       return response.data;
     } catch (error) {
       this.processError(error as AxiosError);
@@ -36,6 +40,7 @@ export class HttpService {
     this.logRequest(url, Methods.PUT, data);
     try {
       const response = await axios.put(url, data);
+      this.toasterService.showToaster('Updated successfully', ToasterType.SUCCESS);
       return response.data;
     } catch (error) {
       this.processError(error as AxiosError);
@@ -55,12 +60,11 @@ export class HttpService {
 
   processError(error: AxiosError) {
     console.log(error);
-    if (error.status == 400) {
-      // TODO: handle 400
-    } else if (error.status == 422) {
-      // TODO: handle 422
+    if (error.status == 400 || error.status == 422) {
+      const message = (error.response?.data as { message: string }).message;
+      this.toasterService.showToaster(message, ToasterType.ERROR);
     } else {
-      // TODO: handle other errors like 500
+      this.toasterService.showToaster(error.message, ToasterType.ERROR);
     }
   }
 

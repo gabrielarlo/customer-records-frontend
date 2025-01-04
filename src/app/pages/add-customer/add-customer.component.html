@@ -1,34 +1,34 @@
 <div class="flex flex-col items-center w-full">
-    <div class="w-full mb-4 card md:w-1/2">
+    <form class="w-full mb-4 card md:w-1/2" (submit)="saveCustomer()">
         <h1 class="mb-4 text-2xl">Add New Customer</h1>
         
         <fieldset>
             <legend>Name *</legend>
-            <input type="text" placeholder="Name">
+            <input type="text" placeholder="Name" name="name" [(ngModel)]="customerForm.name">
         </fieldset>
 
         <fieldset>
             <legend>Email *</legend>
-            <input type="email" placeholder="Email">
+            <input type="email" placeholder="Email" name="email" [(ngModel)]="customerForm.email">
         </fieldset>
 
         <fieldset>
             <legend>Phone</legend>
-            <input type="text" placeholder="Phone">
+            <input type="text" placeholder="Phone" name="phone" [(ngModel)]="customerForm.phone">
         </fieldset>
 
         <fieldset>
             <legend>Address</legend>
-            <textarea></textarea>
+            <textarea name="address" [(ngModel)]="customerForm.address"></textarea>
         </fieldset>
 
         <div class="flex justify-end w-full mt-6 space-x-3">
-            <button type="button" class="btn">Save and Add New</button>
+            <button (click)="saveCustomer(true)" type="button" class="btn">Save and Add New</button>
             <button type="submit" class="btn">Save</button>
         </div>
-    </div>
+    </form>
 
     <p class="text-center">
-        <button (click)="returnToList()" class="text-blue-600 underline">Return to list</button>
+        <button (click)="returnToList()" class="text-blue-600 underline">Return to customer list</button>
     </p>
 </div>

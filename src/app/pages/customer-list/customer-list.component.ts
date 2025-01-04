@@ -7,10 +7,11 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { MomentModule } from 'ngx-moment';
 
 @Component({
   selector: 'app-customer-list',
-  imports: [SummaryCardComponent, CommonModule, FormsModule],
+  imports: [SummaryCardComponent, CommonModule, FormsModule, MomentModule],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.css'
 })

@@ -1,1 +1,52 @@
-<p>edit-customer works!</p>
+<div *ngIf="customer() === undefined">
+    <h1  class="mb-4 text-2xl text-center">Customer not found</h1>
+    <p class="text-center text-blue-600" ><a [routerLink]="['/']" >Return to customer list</a></p>
+</div>
+
+<div class="flex flex-col items-center w-full" *ngIf="customer() !== undefined">
+    <form class="w-full mb-4 card md:w-1/2" (submit)="saveCustomer()">
+        <h1 class="mb-4 text-2xl">Customer Details</h1>
+        
+        <fieldset>
+            <legend>Name *</legend>
+            <input type="text" placeholder="Name" name="name" [(ngModel)]="customerForm.name">
+        </fieldset>
+
+        <fieldset>
+            <legend>Email *</legend>
+            <input type="email" placeholder="Email" name="email" [(ngModel)]="customerForm.email">
+        </fieldset>
+
+        <fieldset>
+            <legend>Phone</legend>
+            <input type="text" placeholder="Phone" name="phone" [(ngModel)]="customerForm.phone">
+        </fieldset>
+
+        <fieldset>
+            <legend>Address</legend>
+            <textarea name="address" [(ngModel)]="customerForm.address"></textarea>
+        </fieldset>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>Created At</td>
+                    <td align="end">{{ customer()?.created_at | amTimeAgo }}</td>
+                </tr>
+                <tr>
+                    <td>Updated At</td>
+                    <td align="end">{{ customer()?.updated_at | amTimeAgo }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="flex justify-between w-full mt-6 space-x-3">
+            <button type="button" class="text-red-600" (click)="deleteCustomer()">Delete</button>
+            <button type="submit" class="btn">Save</button>
+        </div>
+    </form>
+
+    <p class="text-center">
+        <a [routerLink]="['/']" >Return to customer list</a>
+    </p>
+</div>
