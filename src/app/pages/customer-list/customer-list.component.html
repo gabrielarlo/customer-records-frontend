@@ -1,6 +1,7 @@
 <div class="grid grid-cols-2 gap-4 mb-6 md:grid-cols-4">
     <app-summary-card [title]="'Total Customer'" [value]="counts().total" />
     <app-summary-card [title]="'Newly Added Customer'" [value]="counts().newly"/>
+    <app-summary-card [title]="'Deleted Customer'" [value]="counts().deleted"/>
 </div>
 
 <input type="search" placeholder="Search customer ..." [(ngModel)]="search">

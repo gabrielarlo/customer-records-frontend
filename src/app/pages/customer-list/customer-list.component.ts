@@ -16,7 +16,7 @@ import { MomentModule } from 'ngx-moment';
   styleUrl: './customer-list.component.css'
 })
 export class CustomerListComponent implements OnInit {
-  counts = signal<Counts>({ 'total': 0, 'newly': 0 });
+  counts = signal<Counts>({ 'total': 0, 'newly': 0, deleted: 0 });
   // customers = signal<Array<Customer>>([]);
   search = signal<string>('');
   search$ = toObservable(this.search).pipe(
